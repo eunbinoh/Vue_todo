@@ -1,7 +1,13 @@
 <template>
     <section>
         <ul>
-            <li v-for="todoItem in todoItems">{{ todoItem }}</li>
+            <li v-for="(todoItem,index) in todoItems" :key="todoItem" class="shadow">
+                <i class="checkBtn fas fa-check" aria-hidden="true"></i>
+                   {{ todoItem }}
+                <span class="removeBtn" type="button" @click="removeTodo(todoItem,index)">
+                   <i class="far fa-trash-alt" aria-hidden="true"></i>
+                </span>
+            </li>
         </ul>
     </section>
 </template>
@@ -20,6 +26,12 @@ export default {
             }
         }
     },
+    methods: {
+        removeTodo(todoItem,index){
+            localStorage.removeItem(todoItem);
+            this.todoItems.splice(index,1);
+        }
+    }
 }
 </script>
 
@@ -28,7 +40,6 @@ export default {
         list-style-type: none;
         padding-left: 0;
         margin-top: 0;
-        text-align: center;
         font-size: 1.3rem;
     }
     li {
@@ -37,8 +48,19 @@ export default {
         height: 40px;
         line-height: 50px;
         margin: 0.5rem 0;
-        padding: 0 0 0 10%;
+        padding: 0 0 0 5%;
         background: white;
         border-radius: 5px;
+    }
+    .checkBtn {
+        line-height: 45px;
+        color: #8143bb;
+        margin-right: 50px;
+        left: -10px !important;
+    }
+    .removeBtn {
+        margin-left: auto;
+        padding-right: 20px !important;
+        color: grey;
     }
 </style>
