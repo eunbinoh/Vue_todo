@@ -8,13 +8,46 @@
 </template>
 
 <script>
+    import axios from 'axios'
+
     export default {
         data(){
             return{
-                newTodoItem:''
+                newTodoItem:'',
+                percent: 0
             }
         },
         methods:{
+            create(id, params){
+                http
+                    .post("../src/App.vue")
+                    .then(response => {
+                        const { data } = response
+                        console.log(data)
+                        debugger
+                    })
+                    .catch(error => {
+                        alert(error)
+                    })
+            },
+            read(){
+                let params = {}
+                http
+                    .get("/src/components/TodoList.vue", {
+                        params : params,
+                    })
+                    .then(res => {
+                        const { data } = res
+                        console.log(data)
+                        this.items = data.newTodoItem
+                        this.per = data.percent
+                    })
+                    .catch(err => {
+                        alert(err)
+                    })
+
+            },
+
             addTodo(){
                 if(this.newTodoItem!==""){
                     var val = this.newTodoItem && this.newTodoItem.trim();
