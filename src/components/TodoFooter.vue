@@ -26,5 +26,6 @@ export default {
  .clearAllBtn{
      color: white;
      vertical-align: middle;
+     cursor: pointer;
  }
 </style>

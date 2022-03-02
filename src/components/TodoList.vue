@@ -57,10 +57,12 @@ export default {
         color: #8143bb;
         margin-right: 50px;
         left: -10px !important;
+        cursor: pointer;
     }
     .removeBtn {
         margin-left: auto;
         padding-right: 20px !important;
         color: grey;
+        cursor: pointer;
     }
 </style>

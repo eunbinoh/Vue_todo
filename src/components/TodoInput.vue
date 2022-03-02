@@ -23,8 +23,7 @@
                     .post("../src/App.vue")
                     .then(response => {
                         const { data } = response
-                        console.log(data)
-                        debugger
+                        console.log('create data: ',data)
                     })
                     .catch(error => {
                         alert(error)
@@ -38,7 +37,7 @@
                     })
                     .then(res => {
                         const { data } = res
-                        console.log(data)
+                        console.log('read data:',data)
                         this.items = data.newTodoItem
                         this.per = data.percent
                     })
@@ -87,5 +86,6 @@
  .addBtn{
     color: whitesmoke;
     vertical-align: middle;
+    cursor: pointer;
  }
 </style>
