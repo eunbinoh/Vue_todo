@@ -13,11 +13,16 @@
 </template>
 
 <script>
+import { mapState } from 'pinia';
+import { useListStore } from '../stores/storelist.js';
 export default {
     data(){
         return{
             todoItems:[]
         }
+    },
+    computed: {
+        ...mapState(useListStore, ['getAllList'])
     },
     created(){
         if(localStorage.length>0){

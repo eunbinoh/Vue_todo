@@ -1,7 +1,7 @@
 <template>
     <div class="inputBox shadow">
-        <input type="text" v-model="newTodoItem" placeholder="What I have to Do?" v-on:keyup.enter="addTodo">
-        <span class="addContainer" v-on:click="addTodo">
+        <input type="text" v-model="newTodoItem" placeholder="What I have to Do?" @keyup.enter="addTodo">
+        <span class="addContainer" @click="addTodo">
             <i class="addBtn fas fa-plus" aria-hidden="true"></i>
         </span>
     </div>
@@ -14,7 +14,6 @@
         data(){
             return{
                 newTodoItem:'',
-                percent: 0
             }
         },
         methods:{
@@ -32,14 +31,13 @@
             read(){
                 let params = {}
                 http
-                    .get("/src/components/TodoList.vue", {
+                    .get("../src/components/TodoList.vue", {
                         params : params,
                     })
                     .then(res => {
                         const { data } = res
                         console.log('read data:',data)
                         this.items = data.newTodoItem
-                        this.per = data.percent
                     })
                     .catch(err => {
                         alert(err)
@@ -56,6 +54,7 @@
             },
             clearInput(){
                 this.newTodoItem='';
+                this.read();
             }
         }
     }

@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
+    "dayjs": "^1.11.8",
     "es6-promise": "^4.2.8",
+    "pinia": "^2.1.4",
     "vue": "^2.5.11"
   },
   "browserslist": [

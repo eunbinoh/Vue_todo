@@ -9,6 +9,7 @@ export default {
     methods: {
         clearTodo(){
             localStorage.clear();
+            // router.go(0);
         }
     }
 }
